@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5651365345133671711, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6175566779779226994, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
       propertyPath: weaponRange
       value: 1.3
