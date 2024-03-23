@@ -1,5 +1,6 @@
 
 using RPG.Combat;
+using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 
@@ -8,21 +9,25 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Fighter fighter;
+        Health health;
         Mover mover;
 
         void Start()
         {
             fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
             mover = GetComponent<Mover>();
         }
 
         void Update()
         {
-            if (InteractWithCombat()) return;
-            if (InteractWithMovement()) return;
+            if (health.IsDead()) return;
+
+            if (CombatBehavior()) return;
+            if (MovementBehavior()) return;
         }
 
-        private bool InteractWithMovement()
+        private bool MovementBehavior()
         {
             if (Physics.Raycast(GetMouseRay(), out RaycastHit hit))
             {
@@ -36,7 +41,7 @@ namespace RPG.Control
             return false;
         }
 
-        private bool InteractWithCombat()
+        private bool CombatBehavior()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits)
