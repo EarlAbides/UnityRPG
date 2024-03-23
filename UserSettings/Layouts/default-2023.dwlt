@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 963
     height: 498
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 361
     height: 1283
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -172,8 +172,8 @@ MonoBehaviour:
     y: 0
     width: 536
     height: 498
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 17}
@@ -389,8 +389,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Animator\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 2244
-    y: 866
+    x: 537
+    y: 19
     width: 961
     height: 477
   m_SerializedDataModeController:
@@ -560,7 +560,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 171}
     m_SelectedIDs: 927d0000
     m_LastClickedID: 32146
-    m_ExpandedIDs: 00000000de7c0000e07c0000e27c0000e47c0000e67c0000e87c0000ea7c0000ec7c0000ee7c0000f07c0000f27c0000f47c0000f67c000000ca9a3b
+    m_ExpandedIDs: 00000000e47c0000e67c0000e87c0000ea7c0000ec7c0000ee7c0000f07c0000f27c0000f47c0000f67c0000f87c0000fa7c0000fc7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -589,7 +589,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de7c0000e07c0000e27c0000e47c0000e67c0000e87c0000ea7c0000ec7c0000ee7c0000f07c0000f27c0000f47c0000f67c0000
+    m_ExpandedIDs: 00000000e47c0000e67c0000e87c0000ea7c0000ec7c0000ee7c0000f07c0000f27c0000f47c0000f67c0000f87c0000fa7c0000fc7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -621,18 +621,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000000000007682000050830000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: AIController
-      m_OriginalName: AIController
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 32158
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 7}
@@ -668,8 +668,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 3207
-    y: 81
+    x: 1500
+    y: 19
     width: 360
     height: 1262
   m_SerializedDataModeController:
@@ -717,8 +717,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1708
-    y: 81
+    x: 0
+    y: 19
     width: 258
     height: 764
   m_SerializedDataModeController:
@@ -735,8 +735,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8f9ffff
-      m_LastClickedID: -1624
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -783,8 +783,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1967
-    y: 81
+    x: 260
+    y: 19
     width: 1238
     height: 764
   m_SerializedDataModeController:
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.008720408, y: 0.9743058, z: -0.22177453, w: 0.038310796}
     speed: 2
-    m_Value: {x: 0.00872041, y: 0.97430605, z: -0.2217746, w: 0.038310803}
+    m_Value: {x: 0.008720408, y: 0.9743058, z: -0.22177453, w: 0.038310796}
   m_Size:
     m_Target: 4.5714855
     speed: 2
@@ -1491,8 +1491,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1708
-    y: 866
+    x: 0
+    y: 19
     width: 535
     height: 477
   m_SerializedDataModeController:

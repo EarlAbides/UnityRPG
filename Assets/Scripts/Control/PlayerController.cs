@@ -44,11 +44,11 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
 
                 // Move on if we can't attack
-                if (!fighter.CanAttack(target)) continue;
+                if (target == null || !fighter.CanAttack(target.gameObject)) continue;
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    fighter.Attack(target);
+                    fighter.Attack(target.gameObject);
                 }
                 return true;
             }

@@ -31,36 +31,33 @@ namespace RPG.Combat
             HandleAttack();
         }
 
-        public bool CanAttack(CombatTarget target)
+        public bool CanAttack(GameObject attackTarget)
         {
-            if (target == null) return false;
+            if (attackTarget == null) return false;
 
-            Health targetToTest = target.GetComponent<Health>();
+            Health targetToTest = attackTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject attackTarget)
         {
             actionScheduler.StartAction(this);
-            target = combatTarget.GetComponent<Health>();
+            target = attackTarget.GetComponent<Health>();
         }
 
         private void HandleAttack()
         {
-            if (target != null)
-            {
-                if (target.IsDead()) return;
+            if (target == null || target.IsDead()) return;
 
-                bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
-                if (!isInRange)
-                {
-                    mover.MoveTo(target.transform.position);
-                }
-                else
-                {
-                    mover.Cancel();
-                    AttackBehavior();
-                }
+            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            if (!isInRange)
+            {
+                mover.MoveTo(target.transform.position);
+            }
+            else
+            {
+                mover.Cancel();
+                AttackBehavior();
             }
         }
 
