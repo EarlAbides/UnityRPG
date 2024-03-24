@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 178985769146939786}
   - component: {fileID: 178985769146939785}
   - component: {fileID: 178985769146939784}
+  - component: {fileID: 178985769146939792}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1136,6 +1137,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!114 &178985769146939792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178985769146939791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 0fdb420cecef14b418519d94905f7f96, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &178985769205399709
 Transform:
   m_ObjectHideFlags: 0
@@ -1437,63 +1469,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &1896894007910991906
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2057000398228154135, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_Name
-      value: NavMesh Surface
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 39.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 22.878
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 21.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859626128110350347, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 08e9d55f0bef0924694a73aef5764858, type: 3}
 --- !u!4 &2800995672605814097
 Transform:
   m_ObjectHideFlags: 0
@@ -3514,4 +3489,3 @@ SceneRoots:
   - {fileID: 1397970969}
   - {fileID: 782049835}
   - {fileID: 133248170}
-  - {fileID: 1896894007910991906}
