@@ -1,3 +1,4 @@
+using System;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
@@ -9,6 +10,8 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 5f;
+        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float waypointTolerance = 1f;
 
         Fighter fighter;
         GameObject player;
@@ -17,6 +20,7 @@ namespace RPG.Control
 
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        int targetWaypoint = 0;
 
         void Start()
         {
@@ -43,7 +47,7 @@ namespace RPG.Control
             }
             else
             {
-                GuardBehavior();
+                PatrolBehavior();
             }
 
             timeSinceLastSawPlayer += Time.deltaTime;
@@ -64,9 +68,35 @@ namespace RPG.Control
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
-        private void GuardBehavior()
+        private void PatrolBehavior()
         {
-            mover.StartMoveAction(guardPosition);
+            Vector3 nextPosition = guardPosition;
+
+            if (patrolPath != null)
+            {
+                nextPosition = GetCurrentWaypoint();
+                if (AtWaypoint())
+                {
+                    NextWaypoint();
+                }
+            }
+            mover.StartMoveAction(nextPosition);
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTolerance;
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWaypoint(targetWaypoint);
+        }
+
+        private void NextWaypoint()
+        {
+            targetWaypoint = patrolPath.GetNextIndex(targetWaypoint);
         }
 
         // Called by Unity

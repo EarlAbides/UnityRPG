@@ -188,6 +188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1748757496624611439, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 1656041191}
     - target: {fileID: 2291133229211252370, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -531,6 +535,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 409538, guid: 5a346deceb21d0c4781e67a70fbcc1f6, type: 3}
   m_PrefabInstance: {fileID: 1691843763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &567807373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8885177425391553292, guid: 54830976f2d2865449cdf71c073f7834, type: 3}
+  m_PrefabInstance: {fileID: 2568103565783122210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28de0439c8498784bae27fc4457224f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &575548942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409538, guid: 5a346deceb21d0c4781e67a70fbcc1f6, type: 3}
@@ -800,6 +815,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1748757496624611439, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 567807373}
     - target: {fileID: 2291133229211252370, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -1388,6 +1407,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 395364793679719539, guid: 54830976f2d2865449cdf71c073f7834, type: 3}
   m_PrefabInstance: {fileID: 1656041189}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1656041191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8885177425391553292, guid: 54830976f2d2865449cdf71c073f7834, type: 3}
+  m_PrefabInstance: {fileID: 1656041189}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28de0439c8498784bae27fc4457224f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656162788
 GameObject:
   m_ObjectHideFlags: 0
