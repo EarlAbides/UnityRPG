@@ -52,7 +52,7 @@ namespace RPG.Combat
             bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
             if (!isInRange)
             {
-                mover.MoveTo(target.transform.position);
+                mover.MoveTo(target.transform.position, 1f);
             }
             else
             {

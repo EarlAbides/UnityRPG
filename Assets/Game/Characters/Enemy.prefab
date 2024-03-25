@@ -78,6 +78,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6175566779779226994, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8085053530402356415, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.986
@@ -124,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8481907908673076765, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
       propertyPath: healthPoints
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7600937005431784905, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
@@ -203,6 +207,7 @@ MonoBehaviour:
   suspicionTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
+  waypointDwellTime: 2
 --- !u!114 &4820105303267411402
 MonoBehaviour:
   m_ObjectHideFlags: 0
