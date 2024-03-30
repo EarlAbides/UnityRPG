@@ -8,7 +8,7 @@ namespace RPG.Combat
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         Animator animator;
         ActionScheduler actionScheduler;
@@ -16,6 +16,7 @@ namespace RPG.Combat
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
 
         private void Start()
         {
@@ -23,7 +24,7 @@ namespace RPG.Combat
             animator = GetComponent<Animator>();
             mover = GetComponent<Mover>();
 
-            SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update()
@@ -47,11 +48,24 @@ namespace RPG.Combat
             target = attackTarget.GetComponent<Health>();
         }
 
+        public void Cancel()
+        {
+            StopAttack();
+            mover.Cancel();
+            target = null;
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            weapon.Spawn(handTransform, animator);
+        }
+
         private void HandleAttack()
         {
             if (target == null || target.IsDead()) return;
 
-            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weapon.GetRange();
+            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
             if (!isInRange)
             {
                 mover.MoveTo(target.transform.position, 1f);
@@ -80,21 +94,6 @@ namespace RPG.Combat
             animator.SetTrigger("attack");
         }
 
-        public void SpawnWeapon()
-        {
-            if (weapon == null) return;
-            if (handTransform == null) return;
-
-            weapon.Spawn(handTransform, animator);
-        }
-
-        public void Cancel()
-        {
-            StopAttack();
-            mover.Cancel();
-            target = null;
-        }
-
         private void StopAttack()
         {
             animator.ResetTrigger("attack");
@@ -105,7 +104,7 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(weapon.GetDamage());
+            target.TakeDamage(currentWeapon.GetDamage());
         }
     }
 }
