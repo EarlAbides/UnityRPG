@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 1142352877}
   - component: {fileID: 1142352876}
   - component: {fileID: 1142352879}
+  - component: {fileID: 1142352880}
   m_Layer: 2
   m_Name: Intro Sequence
   m_TagString: Untagged
@@ -1011,6 +1012,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e3e9beaac24104bbd35988469590df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1142352880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142352873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 73ad5718-ee27-4b55-a02b-f0501d27db63
 --- !u!4 &1233752068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2420106490237534002, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
@@ -2897,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 1358894522063483325, guid: b51448ee4db31fe47984b1cb6438839e, type: 3}
     - target: {fileID: 7553203740867031960, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: uniqueIdentifier
-      value: 04acc3bd-b2ea-4577-ae48-ea95e4d193a5
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 7897394556278206834, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: m_ScreenX

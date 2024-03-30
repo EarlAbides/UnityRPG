@@ -47,8 +47,9 @@ namespace RPG.Core
 
         public void RestoreState(object state)
         {
+            Start();
             healthPoints = (float)state;
-            
+
             if (healthPoints == 0)
             {
                 Die();
