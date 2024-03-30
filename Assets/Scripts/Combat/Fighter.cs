@@ -7,8 +7,6 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] Transform handTransform = null;
         [SerializeField] Weapon weapon = null;
 
@@ -53,7 +51,7 @@ namespace RPG.Combat
         {
             if (target == null || target.IsDead()) return;
 
-            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weapon.GetRange();
             if (!isInRange)
             {
                 mover.MoveTo(target.transform.position, 1f);
@@ -107,7 +105,7 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(weaponDamage);
+            target.TakeDamage(weapon.GetDamage());
         }
     }
 }
