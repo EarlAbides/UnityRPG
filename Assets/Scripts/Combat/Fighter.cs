@@ -9,6 +9,8 @@ namespace RPG.Combat
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float weaponRange = 2f;
+        [SerializeField] GameObject weaponPrefab = null;
+        [SerializeField] Transform handTransform = null;
 
         Animator animator;
         ActionScheduler actionScheduler;
@@ -22,6 +24,8 @@ namespace RPG.Combat
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
             mover = GetComponent<Mover>();
+
+            SpawnWeapon();
         }
 
         private void Update()
@@ -76,6 +80,14 @@ namespace RPG.Combat
         {
             animator.ResetTrigger("abortAttack");
             animator.SetTrigger("attack");
+        }
+
+        public void SpawnWeapon()
+        {
+            if (weaponPrefab != null && handTransform != null)
+            {
+                Instantiate(weaponPrefab, handTransform);
+            }
         }
 
         public void Cancel()
