@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 2f;
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] Transform handTransform = null;
+        [SerializeField] AnimatorOverrideController weaponOverride = null;
 
         Animator animator;
         ActionScheduler actionScheduler;
@@ -87,6 +88,8 @@ namespace RPG.Combat
             if (weaponPrefab != null && handTransform != null)
             {
                 Instantiate(weaponPrefab, handTransform);
+                Animator animator = GetComponent<Animator>();
+                animator.runtimeAnimatorController = weaponOverride;
             }
         }
 
