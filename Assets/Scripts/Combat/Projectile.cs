@@ -1,11 +1,13 @@
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Combat
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] Transform target = null;
         [SerializeField] float speed = 10f;
+
+        Health target = null;
 
         void Update()
         {
@@ -13,14 +15,19 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
+        public void SetTarget(Health target)
+        {
+            this.target = target;
+        }
+        
         private Vector3 GetAimLocation()
         {
             CapsuleCollider collider = target.GetComponent<CapsuleCollider>();
             if (collider == null) 
             {
-                return target.position;
+                return target.transform.position;
             }
-            return target.position + Vector3.up * collider.height / 2.0f;
+            return target.transform.position + Vector3.up * collider.height / 2.0f;
         }
     }
 }
