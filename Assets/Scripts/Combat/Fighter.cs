@@ -58,6 +58,7 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
+            
             currentWeapon = weapon;
             weapon.Spawn(leftHandTransform, rightHandTransform, animator);
         }

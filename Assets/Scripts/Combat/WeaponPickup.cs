@@ -8,7 +8,6 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
-            print("A sword!");
             if (other.CompareTag("Player"))
             {
                 other.GetComponent<Fighter>().EquipWeapon(weapon);
