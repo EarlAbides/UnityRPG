@@ -4930,6 +4930,18 @@ PrefabInstance:
       propertyPath: hitEffect
       value: 
       objectReference: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+    - target: {fileID: 3812532778254197077, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: lifeAtferImpact
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812532778254197077, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: destroyOnHit.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812532778254197077, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: 'destroyOnHit.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4010738520352942985}
     - target: {fileID: 5982402457210474268, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6
