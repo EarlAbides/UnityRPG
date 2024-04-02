@@ -10,6 +10,7 @@ namespace RPG.Combat
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] string defaultWeaponName = "Unarmed";
 
         Animator animator;
         ActionScheduler actionScheduler;
@@ -25,7 +26,8 @@ namespace RPG.Combat
             animator = GetComponent<Animator>();
             mover = GetComponent<Mover>();
 
-            EquipWeapon(defaultWeapon);
+            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+            EquipWeapon(weapon);
         }
 
         private void Update()
@@ -58,7 +60,7 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-            
+
             currentWeapon = weapon;
             weapon.Spawn(leftHandTransform, rightHandTransform, animator);
         }
