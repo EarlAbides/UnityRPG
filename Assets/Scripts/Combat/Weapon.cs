@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using RPG.Core;
 using Unity.VisualScripting;
 using UnityEngine;

@@ -1,16 +1,16 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
-        [SerializeField] string defaultWeaponName = "Unarmed";
 
         Animator animator;
         ActionScheduler actionScheduler;
@@ -20,14 +20,19 @@ namespace RPG.Combat
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
 
-        private void Start()
+        private void Awake()
         {
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
             mover = GetComponent<Mover>();
+        }
 
-            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
-            EquipWeapon(weapon);
+        private void Start()
+        {
+            if (currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
         }
 
         private void Update()
@@ -60,7 +65,6 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-
             currentWeapon = weapon;
             weapon.Spawn(leftHandTransform, rightHandTransform, animator);
         }
@@ -121,9 +125,24 @@ namespace RPG.Combat
             }
         }
 
+        // Another animation event from bow animation
         void Shoot()
         {
             Hit();
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            Weapon weapon = Resources.Load<Weapon>((string)state);
+            if (weapon != null)
+            {
+                EquipWeapon(weapon);
+            }
         }
     }
 }
