@@ -56,11 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "RPGProjectLatestUnity.sln",
-    // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
+    "dotnet.defaultSolution": "UnityRPG.sln",
     "editor.lineHeight": 0,
-    // Enables font ligatures
     "editor.fontLigatures": "'ss01','ss05','dlig'",
-    // Controls if file decorations should use badges.
     "explorer.decorations.badges": false
 }
