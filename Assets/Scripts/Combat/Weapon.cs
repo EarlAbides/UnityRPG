@@ -1,7 +1,4 @@
-using System;
-using System.Runtime.InteropServices;
-using RPG.Core;
-using Unity.VisualScripting;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat

@@ -1,7 +1,9 @@
+using RPG.Core;
 using RPG.Saving;
+using RPG.Stats;
 using UnityEngine;
 
-namespace RPG.Core
+namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -10,11 +12,20 @@ namespace RPG.Core
         ActionScheduler actionScheduler;
         Animator animator;
         bool isDead = false;
+        float startingHealth = 100f;
 
-        private void Start()
+        void Awake()
         {
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
+
+            healthPoints = GetComponent<BaseStats>().GetHealth();
+            startingHealth = healthPoints;
+        }
+
+        public int GetPercentHealth()
+        {
+            return (int)(healthPoints/startingHealth * 100);
         }
 
         public void TakeDamage(float damage)
@@ -47,7 +58,7 @@ namespace RPG.Core
 
         public void RestoreState(object state)
         {
-            Start();
+            Awake();
             healthPoints = (float)state;
 
             if (healthPoints == 0)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -7,41 +8,27 @@ namespace RPG.Stats
     [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
     public class Progression : ScriptableObject
     {
-        [SerializeField] Progressions progressions = null;
+        [SerializeField] ProgressionCharacterClass[] characterClasses = null;
+
+        public float GetHealth(CharacterClass characterClass, int level)
+        {
+            return characterClasses.Where(cc => cc.characterClass == characterClass)
+                    .First()
+                    .levels[level]
+                    .healthPoints;
+        }
 
         [Serializable]
         class ProgressionCharacterClass
         {
             public CharacterClass characterClass;
-            public int[] levelHealthPoints;
+            public CharacterLevel[] levels;
         }
 
         [Serializable]
-        class Progressions
+        class CharacterLevel
         {
-            public ProgressionCharacterClass[] characterProgressions = new ProgressionCharacterClass[]
-            {
-                new ProgressionCharacterClass
-                {
-                    characterClass = CharacterClass.Player,
-                    levelHealthPoints = new int[] {50, 100, 200, 400, 700}
-                },
-                new ProgressionCharacterClass
-                {
-                    characterClass = CharacterClass.Grunt,
-                    levelHealthPoints = new int[] {20, 40, 80, 160, 320}
-                },
-                new ProgressionCharacterClass
-                {
-                    characterClass = CharacterClass.GruntArcher,
-                    levelHealthPoints = new int[] {15, 30, 60, 120, 240}
-                },
-                new ProgressionCharacterClass
-                {
-                    characterClass = CharacterClass.GruntCaptain,
-                    levelHealthPoints = new int[] {30, 60, 120, 240, 480}
-                }
-            };
+            public float healthPoints;
         }
     }
 }
