@@ -43,6 +43,11 @@ namespace RPG.Combat
             HandleAttack();
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+        
         public bool CanAttack(GameObject attackTarget)
         {
             if (attackTarget == null) return false;

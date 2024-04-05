@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace RPG.Stats
         {
             return characterClasses.Where(cc => cc.characterClass == characterClass)
                     .First()
-                    .levels[level]
+                    .levels[level - 1] // zero based index
                     .healthPoints;
         }
 

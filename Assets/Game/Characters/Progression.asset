@@ -15,5 +15,14 @@ MonoBehaviour:
   characterClasses:
   - characterClass: 0
     levels:
-    - healthPoints: 50
     - healthPoints: 100
+    - healthPoints: 150
+  - characterClass: 2
+    levels:
+    - healthPoints: 30
+  - characterClass: 1
+    levels:
+    - healthPoints: 40
+  - characterClass: 3
+    levels:
+    - healthPoints: 80

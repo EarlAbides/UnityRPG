@@ -1,6 +1,7 @@
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Attributes
@@ -18,7 +19,10 @@ namespace RPG.Attributes
         {
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
+        }
 
+        void Start()
+        {
             healthPoints = GetComponent<BaseStats>().GetHealth();
             startingHealth = healthPoints;
         }
