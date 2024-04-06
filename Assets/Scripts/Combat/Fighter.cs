@@ -47,7 +47,7 @@ namespace RPG.Combat
         {
             return target;
         }
-        
+
         public bool CanAttack(GameObject attackTarget)
         {
             if (attackTarget == null) return false;
@@ -122,12 +122,12 @@ namespace RPG.Combat
             if (currentWeapon.HasProjectile())
             {
                 // Launch projectile
-                currentWeapon.LaunchProjectile(leftHandTransform, rightHandTransform, target);
+                currentWeapon.LaunchProjectile(leftHandTransform, rightHandTransform, target, gameObject);
             }
             else
             {
                 // Regular attack
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, currentWeapon.GetDamage());
             }
         }
 
