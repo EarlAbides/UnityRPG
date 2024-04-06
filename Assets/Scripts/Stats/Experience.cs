@@ -1,3 +1,4 @@
+using System;
 using RPG.Saving;
 using UnityEngine;
 
@@ -7,9 +8,12 @@ namespace RPG.Stats
     {
         private float experiencePoints = 0f;
 
+        public event Action onExperienceGained;
+
         public void AddExperience(float experience)
         {
             experiencePoints += experience;
+            onExperienceGained();
         }
 
         public float GetExperience()

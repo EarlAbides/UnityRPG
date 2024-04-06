@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
@@ -19,38 +18,28 @@ namespace RPG.Stats
                     .GetStat(stat);
         }
 
-        public int GetLevel(float experience)
+        public ProgressionCharacterClass[] GetCharacterClasses()
         {
-            int calculatedLevel = 1;
-
-            ProgressionCharacterClass player = characterClasses.Where(cc => cc.characterClass == CharacterClass.Player).First();
-            for (int level = 1; level < player.levels.Length; level++)
-            {
-                if (experience >= player.levels[level].levelExperience)
-                {
-                    calculatedLevel++;
-                }
-                else break;
-            }            
-
-            return calculatedLevel;
+            return characterClasses;
         }
 
         [Serializable]
-        class ProgressionCharacterClass
+        public class ProgressionCharacterClass
         {
             public CharacterClass characterClass;
             public CharacterLevel[] levels;
 
             public CharacterLevel GetCharacterLevel(int level)
             {
+                if (level <= 0) return levels[0];
+                
                 // Levels are 0 base, passed in level is 1 base
                 return (level <= levels.Length) ? levels[level - 1] : levels[levels.Length - 1];
             }
         }
 
         [Serializable]
-        class CharacterLevel
+        public class CharacterLevel
         {
             public float healthPoints;
             public float experienceReward;
