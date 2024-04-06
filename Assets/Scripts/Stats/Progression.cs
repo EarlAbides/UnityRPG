@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -36,17 +37,24 @@ namespace RPG.Stats
             public float healthPoints;
             public float experienceReward;
 
+            private Dictionary<Stat, float> lookupTable = null; 
+
             public float GetStat(Stat stat)
             {
-                switch (stat)
+                if (lookupTable == null) BuildLookup();
+                if (!lookupTable.ContainsKey(stat)) return 0f;
+                return lookupTable[stat];
+            }
+
+            private void BuildLookup()
+            {
+                if (lookupTable != null) return;
+
+                lookupTable = new Dictionary<Stat, float>
                 {
-                    case Stat.Health:
-                        return healthPoints;
-                    case Stat.ExperienceReward:
-                        return experienceReward;
-                    default:
-                        return 0f;
-                }
+                    { Stat.Health, healthPoints },
+                    { Stat.ExperienceReward, experienceReward}
+                };
             }
         }
     }
