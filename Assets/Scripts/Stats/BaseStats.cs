@@ -11,7 +11,12 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, startingLevel);
+            return progression.GetStat(stat, characterClass, (characterClass == CharacterClass.Player) ? GetLevel() : startingLevel);
+        }
+
+        public int GetLevel()
+        {
+            return progression.GetLevel(GetComponent<Experience>().GetExperience());
         }
     }
 }

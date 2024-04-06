@@ -16,7 +16,11 @@ MonoBehaviour:
   - characterClass: 0
     levels:
     - healthPoints: 100
+      levelExperience: 0
     - healthPoints: 150
+      levelExperience: 20
+    - healthPoints: 200
+      levelExperience: 40
   - characterClass: 1
     levels:
     - healthPoints: 40
