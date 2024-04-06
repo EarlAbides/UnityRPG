@@ -11,7 +11,12 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeInTime = 0.2f;
         SavingSystem savingSystem;
 
-        IEnumerator Start()
+        private void Awake()
+        {
+            StartCoroutine(LoadLastScene());
+        }
+
+        IEnumerator LoadLastScene()
         {
             savingSystem = GetComponent<SavingSystem>();
 

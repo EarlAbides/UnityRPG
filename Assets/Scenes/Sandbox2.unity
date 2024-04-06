@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6698834374944495386, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: persistentObjectPrefab
+      value: 
+      objectReference: {fileID: 1358894522063483325, guid: b51448ee4db31fe47984b1cb6438839e, type: 3}
     - target: {fileID: 7553203740867031960, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: uniqueIdentifier
       value: player
