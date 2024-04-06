@@ -9,12 +9,12 @@ namespace RPG.Stats
     {
         [SerializeField] ProgressionCharacterClass[] characterClasses = null;
 
-        public float GetHealth(CharacterClass characterClass, int level)
+        public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
             return characterClasses.Where(cc => cc.characterClass == characterClass)
                     .First()
-                    .levels[level - 1] // zero based index
-                    .healthPoints;
+                    .GetCharacterLevel(level)
+                    .GetStat(stat);
         }
 
         [Serializable]
@@ -22,12 +22,32 @@ namespace RPG.Stats
         {
             public CharacterClass characterClass;
             public CharacterLevel[] levels;
+
+            public CharacterLevel GetCharacterLevel(int level)
+            {
+                // Levels are 0 base, passed in level is 1 base
+                return (level <= levels.Length) ? levels[level - 1] : levels[levels.Length - 1];
+            }
         }
 
         [Serializable]
         class CharacterLevel
         {
             public float healthPoints;
+            public float experienceReward;
+
+            public float GetStat(Stat stat)
+            {
+                switch (stat)
+                {
+                    case Stat.Health:
+                        return healthPoints;
+                    case Stat.ExperienceReward:
+                        return experienceReward;
+                    default:
+                        return 0f;
+                }
+            }
         }
     }
 }

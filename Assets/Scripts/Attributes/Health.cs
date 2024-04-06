@@ -1,7 +1,6 @@
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Attributes
@@ -23,7 +22,7 @@ namespace RPG.Attributes
 
         void Start()
         {
-            healthPoints = GetComponent<BaseStats>().GetHealth();
+            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
             startingHealth = healthPoints;
         }
 
@@ -56,7 +55,7 @@ namespace RPG.Attributes
             Experience experience = instigator.GetComponent<Experience>();
             if (experience == null) return;
 
-            experience.AddExperience(GetComponent<BaseStats>().GetExperienceAward());
+            experience.AddExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
 
         public bool IsDead()
