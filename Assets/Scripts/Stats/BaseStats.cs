@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System;
 
 namespace RPG.Stats
 {
@@ -10,7 +11,9 @@ namespace RPG.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
 
-        int currentLevel = 0;
+        private int currentLevel = 0;
+
+        public event Action onLevelUp;
 
         void Start()
         {
@@ -36,27 +39,26 @@ namespace RPG.Stats
             return currentLevel;
         }
 
-        void UpdateLevel()
+        private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
             if (newLevel > currentLevel)
             {
                 currentLevel = newLevel;
-                print("Levelled up!");
+                onLevelUp();
             }
         }
 
-        private  int CalculateLevel()
+        private int CalculateLevel()
         {
             Experience experience = GetComponent<Experience>();
             if (experience == null) return startingLevel;
 
             int calculatedLevel = 1;
 
-            Progression.ProgressionCharacterClass player = progression.GetCharacterClasses().Where(cc => cc.characterClass == CharacterClass.Player).First();
-            for (int level = 1; level < player.levels.Length; level++)
+            for (int level = 1; level < progression.GetCharacterClassLevelCount(CharacterClass.Player); level++)
             {
-                if (experience.GetExperience() >= player.levels[level].levelExperience)
+                if (experience.GetExperience() >= progression.GetStat(Stat.LevelExperience, CharacterClass.Player, level)) // player.levels[level].levelExperience)
                 {
                     calculatedLevel++;
                 }

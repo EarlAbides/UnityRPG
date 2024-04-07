@@ -16,20 +16,32 @@ MonoBehaviour:
   - characterClass: 0
     levels:
     - healthPoints: 100
+      experienceReward: 0
       levelExperience: 0
+      weaponDamage: 5
     - healthPoints: 150
+      experienceReward: 0
       levelExperience: 20
+      weaponDamage: 7
     - healthPoints: 200
+      experienceReward: 0
       levelExperience: 40
+      weaponDamage: 10
   - characterClass: 1
     levels:
     - healthPoints: 40
       experienceReward: 15
+      levelExperience: 0
+      weaponDamage: 3
   - characterClass: 2
     levels:
     - healthPoints: 30
       experienceReward: 10
+      levelExperience: 0
+      weaponDamage: 5
   - characterClass: 3
     levels:
     - healthPoints: 80
       experienceReward: 50
+      levelExperience: 0
+      weaponDamage: 10

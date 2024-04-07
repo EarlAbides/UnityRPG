@@ -11,37 +11,56 @@ namespace RPG.Attributes
 
         ActionScheduler actionScheduler;
         Animator animator;
+        BaseStats baseStats;
         bool isDead = false;
-        float startingHealth = 100f;
 
         void Awake()
         {
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
+            baseStats = GetComponent<BaseStats>();
         }
 
         void Start()
         {
             if (healthPoints < 0)
             {
-                healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+                healthPoints = baseStats.GetStat(Stat.Health);
             }
-            startingHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+
+            baseStats.onLevelUp += LevelUp;
         }
 
         public int GetPercentHealth()
         {
-            return (int)(healthPoints/startingHealth * 100);
+            return (int)(healthPoints/baseStats.GetStat(Stat.Health) * 100);
         }
 
         public void TakeDamage(GameObject instigator, float damage)
         {
+            print(gameObject.name + " took damage: " + damage);
+
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             if (healthPoints == 0)
             {
                 Die();
                 AwardExperience(instigator);
             }
+        }
+
+        public float GetMaxHealth()
+        {
+            return baseStats.GetStat(Stat.Health);
+        }
+
+        public float GetCurrentHealth()
+        {
+            return healthPoints;
+        }
+
+        private void LevelUp()
+        {
+            healthPoints = baseStats.GetStat(Stat.Health);
         }
 
         private void Die()

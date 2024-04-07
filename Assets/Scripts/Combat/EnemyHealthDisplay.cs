@@ -1,4 +1,5 @@
 using System;
+using RPG.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,8 @@ namespace RPG.Combat
             }
             else
             {
-                text.text = String.Format(" {0}%", fighter.GetTarget().GetPercentHealth());
+                Health health = fighter.GetTarget();
+                text.text = String.Format("{0:0}/{1:0}", health.GetCurrentHealth(), health.GetMaxHealth());
             }
         }
     }

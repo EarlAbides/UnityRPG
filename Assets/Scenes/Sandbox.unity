@@ -371,6 +371,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d76d89182bdb41508566cb48d97d446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &247465256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247465240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239db3097c9e4482ca2e1fc26c2ec277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpEffect: {fileID: 3021542571423738662, guid: a8411f35b0b4a417baec502cbd55ac59, type: 3}
+  yOffset: 1
 --- !u!1001 &356553065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -995,7 +1009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875548843}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010058499, y: 0.9823624, z: -0.055417467, w: -0.17830284}
+  m_LocalRotation: {x: -0.0100585045, y: 0.9823624, z: -0.05541748, w: -0.17830287}
   m_LocalPosition: {x: 8.24, y: 24.51, z: -18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3442,6 +3456,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7527714776514011983, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       insertIndex: -1
       addedObject: {fileID: 247465255}
+    - targetCorrespondingSourceObject: {fileID: 7527714776514011983, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247465256}
   m_SourcePrefab: {fileID: 100100000, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
 --- !u!4 &4072589435678302842 stripped
 Transform:
