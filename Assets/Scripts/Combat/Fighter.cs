@@ -4,10 +4,11 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
 using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform leftHandTransform = null;
@@ -115,6 +116,14 @@ namespace RPG.Combat
             animator.SetTrigger("abortAttack");
         }
 
+        public IEnumerable<float> GetAdditiveModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+            }
+        }
+
         // Animation Event
         void Hit()
         {
@@ -129,7 +138,6 @@ namespace RPG.Combat
             else
             {
                 // Regular attack
-                // target.TakeDamage(gameObject, currentWeapon.GetDamage());
                 target.TakeDamage(gameObject, damage);
             }
         }

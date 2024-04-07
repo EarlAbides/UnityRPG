@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
@@ -38,9 +40,10 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            print(gameObject.name + " took damage: " + damage);
+            float totalDamage = damage;
+            print(gameObject.name + " took damage: " + totalDamage);
 
-            healthPoints = Mathf.Max(healthPoints - damage, 0);
+            healthPoints = Mathf.Max(healthPoints - totalDamage, 0);
             if (healthPoints == 0)
             {
                 Die();
