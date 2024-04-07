@@ -16,6 +16,7 @@ namespace RPG.Combat
         [SerializeField] AnimatorOverrideController animatorOverride = null;
         [SerializeField] GameObject equippedPrefab = null;
         [SerializeField] float damage = 5f;
+        [SerializeField] float percentBonus = 0f;
         [SerializeField] float range = 2f;
         [SerializeField] Handedness handedness = Handedness.Right;
         [SerializeField] Projectile projectile = null;
@@ -66,6 +67,11 @@ namespace RPG.Combat
         public float GetDamage()
         {
             return damage;
+        }
+
+        public float GetPercentBonus()
+        {
+            return percentBonus;
         }
 
         private Transform GetHand(Transform leftHandTransform, Transform rightHandTransform)

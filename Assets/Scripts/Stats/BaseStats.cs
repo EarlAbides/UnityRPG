@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Linq;
 using System;
 
 namespace RPG.Stats
@@ -10,6 +9,7 @@ namespace RPG.Stats
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
+        [SerializeField] bool shouldUseModifiers = false;
 
         private int currentLevel = 0;
 
@@ -27,7 +27,7 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, GetLevel()) + GetAdditiveModifier(stat);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat)/100);
         }
 
         public int GetLevel()
@@ -37,6 +37,11 @@ namespace RPG.Stats
                 CalculateLevel();
             }
             return currentLevel;
+        }
+
+        private float GetBaseStat(Stat stat)
+        {
+            return progression.GetStat(stat, characterClass, GetLevel());
         }
 
         private float GetAdditiveModifier(Stat stat)
@@ -54,6 +59,19 @@ namespace RPG.Stats
             return total;
         }
 
+        private float GetPercentageModifier(Stat stat){
+            float percentage = 0f;
+
+            foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in provider.GetPercentageModifiers(stat))
+                {
+                    percentage += modifier;
+                }
+            }
+
+            return percentage;
+        }
 
         private void UpdateLevel()
         {

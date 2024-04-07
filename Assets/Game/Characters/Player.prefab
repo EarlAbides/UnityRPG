@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 98014811211362249, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
+      propertyPath: shouldUseModifiers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5651365345133671711, guid: 160ad58935030b54cbe5445758ca0377, type: 3}
       propertyPath: m_Name
       value: Player
@@ -172,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingLevel: 1
   characterClass: 0
+  progression: {fileID: 0}
+  shouldUseModifiers: 0
 --- !u!1001 &5886342182567830963
 PrefabInstance:
   m_ObjectHideFlags: 0
