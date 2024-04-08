@@ -5,29 +5,46 @@ namespace RPG.Stats
 {
     public class BaseStats : MonoBehaviour
     {
-        [Range(1,99)]
+        [Range(1, 99)]
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
         [SerializeField] bool shouldUseModifiers = false;
 
         private int currentLevel = 0;
+        private Experience experience = null;
 
         public event Action onLevelUp;
 
-        void Start()
+        private void Awake()
         {
-            currentLevel = CalculateLevel();
-            Experience experience = GetComponent<Experience>();
+            experience = GetComponent<Experience>();
+        }
+
+        private void OnEnable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
             }
         }
 
+        private void Start()
+        {
+            currentLevel = CalculateLevel();
+        }
+
+        private void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.onExperienceGained -= UpdateLevel;
+            }
+        }
+
         public float GetStat(Stat stat)
         {
-            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat)/100);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
         }
 
         public int GetLevel()
@@ -59,7 +76,8 @@ namespace RPG.Stats
             return total;
         }
 
-        private float GetPercentageModifier(Stat stat){
+        private float GetPercentageModifier(Stat stat)
+        {
             float percentage = 0f;
 
             foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
@@ -85,7 +103,6 @@ namespace RPG.Stats
 
         private int CalculateLevel()
         {
-            Experience experience = GetComponent<Experience>();
             if (experience == null) return startingLevel;
 
             float currentXP = experience.GetExperience();
@@ -96,11 +113,9 @@ namespace RPG.Stats
                 {
                     return level;
                 }
-            }            
+            }
 
             return penultimateLevel + 1;
         }
-
-
     }
 }

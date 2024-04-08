@@ -6,10 +6,21 @@ namespace RPG.Stats
     {
         [SerializeField] GameObject levelUpEffect = null;
 
-        private void Start()
+        BaseStats baseStats;
+
+        private void Awake()
         {
-            BaseStats baseStats = GetComponent<BaseStats>();
+            baseStats = GetComponent<BaseStats>();
+        }
+
+        private void OnEnable()
+        {
             baseStats.onLevelUp += DoLevelUp;
+        }
+
+        private void OnDisable()
+        {
+            baseStats.onLevelUp -= DoLevelUp;
         }
 
         private void DoLevelUp()

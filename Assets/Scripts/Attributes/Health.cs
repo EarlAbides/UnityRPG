@@ -16,21 +16,29 @@ namespace RPG.Attributes
         BaseStats baseStats;
         bool isDead = false;
 
-        void Awake()
+        private void Awake()
         {
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
             baseStats = GetComponent<BaseStats>();
         }
 
-        void Start()
+        private void OnEnable()
+        {
+            baseStats.onLevelUp += LevelUp;
+        }
+
+        private void Start()
         {
             if (healthPoints < 0)
             {
                 healthPoints = baseStats.GetStat(Stat.Health);
             }
+        }
 
-            baseStats.onLevelUp += LevelUp;
+        private void OnDisable()
+        {
+            baseStats.onLevelUp -= LevelUp;
         }
 
         public int GetPercentHealth()
@@ -95,7 +103,6 @@ namespace RPG.Attributes
 
         public void RestoreState(object state)
         {
-            Awake();
             healthPoints = (float)state;
 
             if (healthPoints == 0)

@@ -12,14 +12,14 @@ namespace RPG.Control
         Health health;
         Mover mover;
 
-        void Start()
+        private void Awake()
         {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
         }
 
-        void Update()
+        private void Update()
         {
             if (health.IsDead()) return;
 

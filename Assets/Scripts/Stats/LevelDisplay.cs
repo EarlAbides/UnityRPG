@@ -8,16 +8,17 @@ namespace RPG.Stats
     {
 
         BaseStats baseStats = null;
+        Text text;
 
         private void Awake()
         {
             baseStats = GameObject.FindWithTag("Player").GetComponent<BaseStats>();
+            text = GetComponent<Text>();
         }
         
         void Update()
         {
-            Text text = GetComponent<Text>();
-            text.text = String.Format("{0}", baseStats.GetLevel()); 
+            text.text = String.Format(" {0}", baseStats.GetLevel()); 
         }
     }
 }

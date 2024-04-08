@@ -20,9 +20,9 @@ namespace RPG.SceneManagement
         {
             savingSystem = GetComponent<SavingSystem>();
 
+            yield return savingSystem.LoadLastScene(defaultSaveFile);
             Fader fader = FindFirstObjectByType<Fader>();
             fader.FadeOutImmediate();
-            yield return savingSystem.LoadLastScene(defaultSaveFile);
             yield return fader.FadeIn(fadeInTime);
         }
 

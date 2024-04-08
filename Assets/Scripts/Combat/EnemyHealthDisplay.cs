@@ -25,7 +25,7 @@ namespace RPG.Combat
             else
             {
                 Health health = fighter.GetTarget();
-                text.text = String.Format("{0:0}/{1:0}", health.GetCurrentHealth(), health.GetMaxHealth());
+                text.text = String.Format(" {0:0}/{1:0}", health.GetCurrentHealth(), health.GetMaxHealth());
             }
         }
     }
