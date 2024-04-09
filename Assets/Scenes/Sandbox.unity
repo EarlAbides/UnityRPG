@@ -384,7 +384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpEffect: {fileID: 3021542571423738662, guid: a8411f35b0b4a417baec502cbd55ac59, type: 3}
-  yOffset: 1
 --- !u!1001 &356553065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3357,6 +3356,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[1].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[2].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[3].type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[0].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[1].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8859fce41c5d0a148ad0b7eebfca7fe9, type: 3}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[2].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    - target: {fileID: 1329269749593335782, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: cursorMappings.Array.data[3].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 6fdfcd4167ed5e7488584241bb671bb2, type: 3}
     - target: {fileID: 1655666675433956215, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: m_Name
       value: Core
@@ -3599,6 +3630,18 @@ PrefabInstance:
     - target: {fileID: 3646613192468685868, guid: 37a39814a766e4a859d7b1fb842a9ae7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729621180885211515, guid: 37a39814a766e4a859d7b1fb842a9ae7, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729621180885211515, guid: 37a39814a766e4a859d7b1fb842a9ae7, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729621180885211515, guid: 37a39814a766e4a859d7b1fb842a9ae7, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7268997297952947675, guid: 37a39814a766e4a859d7b1fb842a9ae7, type: 3}
       propertyPath: m_Name

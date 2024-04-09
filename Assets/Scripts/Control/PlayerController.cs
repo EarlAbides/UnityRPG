@@ -43,15 +43,11 @@ namespace RPG.Control
         private void Update()
         {
             if (InteractWithUI()) return;
+            if (DeathBehavior()) return;
 
-            if (health.IsDead())
-            {
-                SetCursor(CursorType.None);
-                return;
-            }
-
-            if (CombatBehavior()) return;
+            if (InteractWithComponent()) return;
             if (MovementBehavior()) return;
+
             SetCursor(CursorType.None);
         }
 
@@ -65,6 +61,36 @@ namespace RPG.Control
             return false;
         }
 
+        private bool DeathBehavior()
+        {
+            if (health.IsDead())
+            {
+                SetCursor(CursorType.None);
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool InteractWithComponent()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach (RaycastHit hit in hits)
+            {
+                IRaycastable[] raycastReceivers = hit.transform.GetComponents<IRaycastable>();
+                foreach (IRaycastable receiver in raycastReceivers)
+                {
+                    if (receiver.HandleRaycast(this))
+                    {
+                        SetCursor(CursorType.Combat);
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         private bool MovementBehavior()
         {
             if (Physics.Raycast(GetMouseRay(), out RaycastHit hit))
@@ -74,27 +100,6 @@ namespace RPG.Control
                     mover.StartMoveAction(hit.point, 1f);
                 }
                 SetCursor(CursorType.Movement);
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool CombatBehavior()
-        {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-            foreach (RaycastHit hit in hits)
-            {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-
-                // Move on if we can't attack
-                if (target == null || !fighter.CanAttack(target.gameObject)) continue;
-
-                if (Input.GetMouseButton(0))
-                {
-                    fighter.Attack(target.gameObject);
-                }
-                SetCursor(CursorType.Combat);
                 return true;
             }
 
