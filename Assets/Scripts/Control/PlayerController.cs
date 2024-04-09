@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using RPG.Attributes;
-using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,17 +10,8 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        Fighter fighter;
         Health health;
         Mover mover;
-
-        enum CursorType
-        {
-            None,
-            Movement,
-            Combat,
-            UI
-        }
 
         [Serializable]
         struct CursorMapping
@@ -35,7 +25,6 @@ namespace RPG.Control
 
         private void Awake()
         {
-            fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
         }
@@ -74,7 +63,7 @@ namespace RPG.Control
 
         private bool InteractWithComponent()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = RaycastAllSorted();
             foreach (RaycastHit hit in hits)
             {
                 IRaycastable[] raycastReceivers = hit.transform.GetComponents<IRaycastable>();
@@ -82,13 +71,20 @@ namespace RPG.Control
                 {
                     if (receiver.HandleRaycast(this))
                     {
-                        SetCursor(CursorType.Combat);
+                        SetCursor(receiver.GetCursorType());
                         return true;
                     }
                 }
             }
 
             return false;
+        }
+
+        private RaycastHit[] RaycastAllSorted()
+        {
+            return Physics.RaycastAll(GetMouseRay())
+                .OrderBy(h => h.distance)
+                .ToArray();
         }
 
         private bool MovementBehavior()
