@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
 using GameDevTV.Utils;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
+        [SerializeField] UnityEvent takeDamage;
         LazyValue<float> healthPoints;
 
         ActionScheduler actionScheduler;
@@ -47,19 +47,22 @@ namespace RPG.Attributes
 
         public int GetPercentHealth()
         {
-            return (int)(healthPoints.value/baseStats.GetStat(Stat.Health) * 100);
+            return (int)(healthPoints.value / baseStats.GetStat(Stat.Health) * 100);
         }
 
         public void TakeDamage(GameObject instigator, float damage)
         {
             float totalDamage = damage;
-            print(gameObject.name + " took damage: " + totalDamage);
 
             healthPoints.value = Mathf.Max(healthPoints.value - totalDamage, 0);
             if (healthPoints.value == 0)
             {
                 Die();
                 AwardExperience(instigator);
+            }
+            else
+            {
+                takeDamage.Invoke();
             }
         }
 

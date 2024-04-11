@@ -978,7 +978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875548843}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010058499, y: 0.9823624, z: -0.055417467, w: -0.17830284}
+  m_LocalRotation: {x: -0.0100585045, y: 0.9823624, z: -0.05541748, w: -0.17830287}
   m_LocalPosition: {x: 8.24, y: 24.51, z: -18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1924,7 +1924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618720774}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.051053822, y: 0.9430808, z: -0.17191608, w: -0.28006616}
+  m_LocalRotation: {x: -0.051053837, y: 0.9430808, z: -0.1719161, w: -0.2800662}
   m_LocalPosition: {x: 7.41, y: 25.11, z: -4.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3387,6 +3387,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 886208367236027884, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.897057
+      objectReference: {fileID: 0}
+    - target: {fileID: 886208367236027884, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.460836
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273163004423337763, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.897057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273163004423337763, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.460836
+      objectReference: {fileID: 0}
     - target: {fileID: 1655666675433956215, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: m_Name
       value: Core
@@ -3430,6 +3446,10 @@ PrefabInstance:
     - target: {fileID: 3052494573941998204, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030236543086389325, guid: 69c512d1d0c715f4d8674ed2242da846, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
