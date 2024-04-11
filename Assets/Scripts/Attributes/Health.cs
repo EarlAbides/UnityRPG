@@ -52,9 +52,9 @@ namespace RPG.Attributes
             baseStats.onLevelUp -= LevelUp;
         }
 
-        public int GetPercentHealth()
+        public float GetPercentHealth()
         {
-            return (int)(healthPoints.value / baseStats.GetStat(Stat.Health) * 100);
+            return healthPoints.value / baseStats.GetStat(Stat.Health);
         }
 
         public void TakeDamage(GameObject instigator, float damage)
