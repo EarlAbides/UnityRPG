@@ -1,6 +1,5 @@
 using RPG.Control;
 using RPG.Core;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -29,13 +28,12 @@ namespace RPG.Cinematics
 
         void DisableControl(PlayableDirector playableDirector)
         {
-            player.GetComponent<ActionScheduler>().CancelCurrentAction();
-            player.GetComponent<PlayerController>().enabled = false;
+            player.GetComponent<PlayerController>().DisableControl();
         }
 
         void EnableControl(PlayableDirector playableDirector)
         {
-            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<PlayerController>().EnableControl();
         }
     }
 }

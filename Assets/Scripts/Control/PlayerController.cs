@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using RPG.Attributes;
+using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.AI;
@@ -41,6 +42,17 @@ namespace RPG.Control
             if (MovementBehavior()) return;
 
             SetCursor(CursorType.None);
+        }
+
+        public void DisableControl()
+        {
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+            GetComponent<PlayerController>().enabled = false;
+        }
+
+        public void EnableControl()
+        {
+            GetComponent<PlayerController>().enabled = true;
         }
 
         private bool InteractWithUI()
