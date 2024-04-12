@@ -6,7 +6,7 @@ namespace RPG.Cinematics
 {
     public class CinematicTrigger : MonoBehaviour, ISaveable
     {
-        private bool alreadyTriggered = false;
+        private bool alreadyTriggered = true;
 
         private void OnTriggerEnter(Collider other)
         {
