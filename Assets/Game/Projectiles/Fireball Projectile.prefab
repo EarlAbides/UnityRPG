@@ -4898,6 +4898,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 296343002945664747, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: da0093ebe4323b846a8f67e40229df09, type: 3}
+    - target: {fileID: 296343002945664747, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: da0093ebe4323b846a8f67e40229df09, type: 3}
     - target: {fileID: 400601351633554273, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
       propertyPath: m_Name
       value: Fireball Projectile
@@ -4914,6 +4922,14 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.26
       objectReference: {fileID: 0}
+    - target: {fileID: 2150756448452617254, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c4a6d3173c94d04c9896a4afd752f69, type: 3}
+    - target: {fileID: 2150756448452617254, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c4a6d3173c94d04c9896a4afd752f69, type: 3}
     - target: {fileID: 3205062417700069214, guid: 5d0f14aa1188d1d4195ec2af7f7d0008, type: 3}
       propertyPath: m_Mass
       value: 1

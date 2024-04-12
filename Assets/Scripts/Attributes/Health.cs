@@ -11,6 +11,8 @@ namespace RPG.Attributes
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] TakeDamageEvent takeDamage;
+        [SerializeField] UnityEvent onDamage;
+        [SerializeField] UnityEvent onDeath;
 
         LazyValue<float> healthPoints;
 
@@ -64,12 +66,14 @@ namespace RPG.Attributes
             healthPoints.value = Mathf.Max(healthPoints.value - totalDamage, 0);
             if (healthPoints.value == 0)
             {
+                onDeath.Invoke();
                 Die();
                 AwardExperience(instigator);
             }
             else
             {
                 takeDamage.Invoke(totalDamage);
+                onDamage.Invoke();
             }
         }
 
