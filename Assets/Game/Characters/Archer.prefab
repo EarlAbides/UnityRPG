@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 29b7a03dcc3fa6c4cb19b3f5fd4c3a2c, type: 2}
+    - target: {fileID: 293321230481514239, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
+      propertyPath: defaultWeaponConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 29b7a03dcc3fa6c4cb19b3f5fd4c3a2c, type: 2}
     - target: {fileID: 1748757496624611439, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: chaseDistance
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2264804787795961413, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: uniqueIdentifier
-      value: 
+      value: 2bdb0233-3cf5-4e4b-88c5-f4a6989a8ca1
       objectReference: {fileID: 0}
     - target: {fileID: 2291133229211252370, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_Name
@@ -26,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2420106490237534002, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.782387
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 2420106490237534002, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2420106490237534002, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5740576
+      value: 1.605
       objectReference: {fileID: 0}
     - target: {fileID: 2420106490237534002, guid: 6e299904ce5a5b94391070ea8d081658, type: 3}
       propertyPath: m_LocalRotation.w
