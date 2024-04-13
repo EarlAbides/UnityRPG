@@ -15,7 +15,7 @@ MonoBehaviour:
   animatorOverride: {fileID: 0}
   equippedPrefab: {fileID: 4827347745121429631, guid: e6e85a138bd9f4af6ac22e50b65bcd18, type: 3}
   damage: 3
-  percentBonus: 0
+  percentBonus: 10
   range: 2
   handedness: 1
   projectile: {fileID: 0}
