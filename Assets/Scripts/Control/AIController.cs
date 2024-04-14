@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using GameDevTV.Utils;
 using RPG.Attributes;
 using RPG.Combat;
@@ -11,7 +12,9 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
-        [SerializeField] float suspicionTime = 5f;
+        [SerializeField] float suspicionTime = 3f;
+        [SerializeField] float aggroTime = 5f;
+        [SerializeField] float aggroRange = 5f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 2f;
@@ -25,6 +28,7 @@ namespace RPG.Control
 
         LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceLastAggro = Mathf.Infinity;
         float timeAtWaypoint = Mathf.Infinity;
         int targetWaypoint = 0;
 
@@ -52,7 +56,7 @@ namespace RPG.Control
         {
             if (health.IsDead()) return;
 
-            if (PlayerInRange() && fighter.CanAttack(player))
+            if (IsAggrevated() && fighter.CanAttack(player))
             {
                 AttackBehavior();
             }
@@ -68,21 +72,43 @@ namespace RPG.Control
             UpdateTimers();
         }
 
+        public void Aggrevate()
+        {
+            timeSinceLastAggro = 0f;
+        }
+
         private void UpdateTimers()
         {
             timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceLastAggro += Time.deltaTime;
             timeAtWaypoint += Time.deltaTime;
         }
 
-        private bool PlayerInRange()
+        private bool IsAggrevated()
         {
-            return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
+            float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+            return playerDistance < chaseDistance || timeSinceLastAggro < aggroTime;
         }
 
         private void AttackBehavior()
         {
             timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
+
+            AggrevateNearbyEnemies();
+        }
+
+        private void AggrevateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, aggroRange, Vector3.one);
+            foreach(RaycastHit hit in hits)
+            {
+                GameObject target = hit.collider.gameObject;
+                if (target.CompareTag("Enemy"))
+                {
+                    target.GetComponent<AIController>().Aggrevate();
+                }
+            }
         }
 
         private void SuspicionBehavior()

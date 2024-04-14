@@ -10,6 +10,7 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float maxSpeed = 6f;
+        [SerializeField] float maxMoveDistance = 40f;
 
         ActionScheduler actionScheduler;
         Animator animator;
@@ -34,6 +35,25 @@ namespace RPG.Movement
         {
             actionScheduler.StartAction(this);
             MoveTo(destination, speedFraction);
+        }
+
+        public bool CanMoveTo(Vector3 target)
+        {
+            NavMeshPath path = new();
+            if (NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path))
+            {
+                if (path.status == NavMeshPathStatus.PathComplete && path.corners.Length >= 2)
+                {
+                    float distance = 0f;
+                    for (int i = 1; i < path.corners.Length; i++)
+                    {
+                        distance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                    }
+                    if (distance < maxMoveDistance) return true;
+                }
+            }
+
+            return false;
         }
 
         public void MoveTo(Vector3 destination, float speedFraction)
